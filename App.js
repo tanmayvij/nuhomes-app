@@ -16,10 +16,16 @@ import Cart from './android/app/src/main/js/Cart';
 import Profile from './android/app/src/main/js/Profile';
 import Help from './android/app/src/main/js/Help';
 
+import SyncStorage from 'sync-storage';
+
 const Tab = createBottomTabNavigator();
 
 export default class App extends Component
 {
+    async componentDidMount() {
+        await SyncStorage.init();
+    }
+
     render() {
         return (
             <NavigationContainer>
